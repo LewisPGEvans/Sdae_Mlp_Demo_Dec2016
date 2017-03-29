@@ -134,10 +134,8 @@ LocalPrintAndLogFunc("after setting randomSeed=" + str(rseed))
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
 
-### iris = datasets.load_iris().data
-
 # these are np-ndarrays:
-trainCovariates = mnist.train.images # Used to be called trainImages
+trainCovariates = mnist.train.images
 trainLabels = mnist.train.labels
 testCovariates = mnist.test.images
 testLabels = mnist.test.labels
@@ -156,12 +154,6 @@ hiddenDims = (256, 128, 64) # 3-layer
 #hiddenDims = (256,) # 1-layer
 assert len(hiddenDims) > 0 # SDAE needs at least one hidden layer
 
-# devel
-"""
-inputDim = 4 # 6
-hiddenDims = (3, 2, 1) # (5, 4, 3)
-"""
-
 totalDimsList = list(); totalDimsList.append(inputDim); totalDimsList.extend(hiddenDims); totalDims = tuple(totalDimsList)
 LocalPrintAndLogFunc("inputDim=" + str(inputDim))
 LocalPrintAndLogFunc("hiddenDims=" + str(hiddenDims))
@@ -175,14 +167,13 @@ LocalPrintAndLogFunc("totalDims=" + str(totalDims))
 hiddenEncodeFuncName = "sigmoid"
 LocalPrintAndLogFunc("hiddenEncodeFuncName=" + str(hiddenEncodeFuncName))
 
-#hiddenDecodeFuncName = "linear"
 hiddenDecodeFuncName = "sigmoid"
 LocalPrintAndLogFunc("hiddenDecodeFuncName=" + str(hiddenDecodeFuncName))
 
 lossName = "rmse" # "cross-entropy"
 LocalPrintAndLogFunc("lossName=" + str(lossName))
 
-learnRate = 0.007 # 0.001 # 0.002
+learnRate = 0.007
 LocalPrintAndLogFunc("learnRate=" + str(learnRate))
 
 maskNoiseFraction = 0.1 # 0.25
@@ -342,7 +333,6 @@ def FeedForwardHiddensPartial_SessionEval(sessionArg, x, numLayers:int, weightDi
 	
 	if numLayers == 0: return x
 	
-	###if numLayers >= 1:
 	# input to Hidden layer 1
 	x = TfLib.ActivationOp(tf.add(tf.matmul(x, weightDict['h1']), biasDict['b1']), hiddenEncodeFuncNameStr)
 	
