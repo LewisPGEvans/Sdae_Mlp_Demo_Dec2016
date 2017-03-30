@@ -657,8 +657,8 @@ if bClassifyUseCaseB:
 
 
 
-bClassifyUseCaseC = False
-#bClassifyUseCaseC = True
+#bClassifyUseCaseC = False
+bClassifyUseCaseC = True
 LocalPrintAndLogFunc("bClassifyUseCaseC=" + str(bClassifyUseCaseC))
 # use case C: generate data
 if bClassifyUseCaseC:
