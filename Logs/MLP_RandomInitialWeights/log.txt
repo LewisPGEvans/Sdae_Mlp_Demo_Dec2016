@@ -1,0 +1,123 @@
+Log start, written by LogLib.StartUniqueLog at 2017-03-29___16-47-54-220292_pid_3689
+MlpNet1 harnessStartTime=2017-03-29 16:47:54.220160
+after setting randomSeed=220160
+shape-trainCovariates=(55000, 784)
+shape-trainLabels=(55000, 10)
+shape-testImages=(10000, 784)
+shape-testLabels=(10000, 10)
+inputDim=784
+outputDim=10
+finalHiddenDim=64
+hiddenDims=(256, 128, 64)
+numHiddenLayers=3
+totalDims=(784, 256, 128, 64, 10)
+hiddenEncodeFuncName=relu
+outputEncodeFuncName=linear
+lossName=cross-entropy
+learnRate=0.003
+nTrainEpochs=10
+printEpochFreq=1
+batchSize 100 out of 55000
+numBatchDatasets=550
+bLoadWeights=False
+loadWeightsFilename=[None]
+initWbTruncNormal=True
+Before training MlpNet1
+After initialising all variables
+********************************************************************************
+Start_PrintTrainableVariables
+nodeIndex 0, node-name weights1:0, node-dtype <dtype: 'float32_ref'>
+value: name weights1/read:0, dtype <dtype: 'float32'>, shape (784, 256)
+nodeIndex 1, node-name weights2:0, node-dtype <dtype: 'float32_ref'>
+value: name weights2/read:0, dtype <dtype: 'float32'>, shape (256, 128)
+nodeIndex 2, node-name weights3:0, node-dtype <dtype: 'float32_ref'>
+value: name weights3/read:0, dtype <dtype: 'float32'>, shape (128, 64)
+nodeIndex 3, node-name weightsOut:0, node-dtype <dtype: 'float32_ref'>
+value: name weightsOut/read:0, dtype <dtype: 'float32'>, shape (64, 10)
+nodeIndex 4, node-name biases1:0, node-dtype <dtype: 'float32_ref'>
+value: name biases1/read:0, dtype <dtype: 'float32'>, shape (256,)
+nodeIndex 5, node-name biases2:0, node-dtype <dtype: 'float32_ref'>
+value: name biases2/read:0, dtype <dtype: 'float32'>, shape (128,)
+nodeIndex 6, node-name biases3:0, node-dtype <dtype: 'float32_ref'>
+value: name biases3/read:0, dtype <dtype: 'float32'>, shape (64,)
+nodeIndex 7, node-name biasesOut:0, node-dtype <dtype: 'float32_ref'>
+value: name biasesOut/read:0, dtype <dtype: 'float32'>, shape (10,)
+End_PrintTrainableVariables
+********************************************************************************
+Epoch 1, cost 175.27712067950853
+Epoch 2, cost 32.25284464662729
+Epoch 3, cost 17.089144010110335
+Epoch 4, cost 10.424340108717809
+Epoch 5, cost 7.177557235269045
+Epoch 6, cost 5.102354708426484
+Epoch 7, cost 3.9086691652580057
+Epoch 8, cost 2.9028073259913922
+Epoch 9, cost 2.6078217178305527
+Epoch 10, cost 2.3104799513913825
+After training
+Accuracy: 0.947
+After training MlpNet1
+saveResultDict-sortedSrdKeys['biasesDict', 'hiddenDims', 'hiddenEncodeFuncName', 'initBiasesDict', 'initWeightsDict', 'inputDim', 'lossName', 'outputDim', 'outputEncodeFuncName', 'totalDims', 'weightsDict']
+After all training, initParams
+numHiddenLayers=3
+hLayerIndex=0
+encodeWeightsThisLayer [0,0] 0.860411796677
+encodeBiasesThisLayer [0] -0.7783785763
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (784, 256)
+shape-encodeBiasesThisLayer (256,)
+--------------------------------------------------------------------------------
+hLayerIndex=1
+encodeWeightsThisLayer [0,0] -0.23530509954
+encodeBiasesThisLayer [0] 0.242880310794
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (256, 128)
+shape-encodeBiasesThisLayer (128,)
+--------------------------------------------------------------------------------
+hLayerIndex=2
+encodeWeightsThisLayer [0,0] -1.4709179081
+encodeBiasesThisLayer [0] -0.213401480214
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (128, 64)
+shape-encodeBiasesThisLayer (64,)
+--------------------------------------------------------------------------------
+encodeWeightsOutLayer [0,0] 0.74077019559
+encodeBiasesOutLayer [0] -0.716330201775
+--------------------------------------------------------------------------------
+shape-encodeWeightsOutLayer (64, 10)
+shape-encodeBiasesOutLayer (10,)
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+After all training, finalParams
+numHiddenLayers=3
+hLayerIndex=0
+encodeWeightsThisLayer [0,0] 0.860412
+encodeBiasesThisLayer [0] -0.760874
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (784, 256)
+shape-encodeBiasesThisLayer (256,)
+--------------------------------------------------------------------------------
+hLayerIndex=1
+encodeWeightsThisLayer [0,0] -0.242136
+encodeBiasesThisLayer [0] 0.0743194
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (256, 128)
+shape-encodeBiasesThisLayer (128,)
+--------------------------------------------------------------------------------
+hLayerIndex=2
+encodeWeightsThisLayer [0,0] -1.47092
+encodeBiasesThisLayer [0] -0.556562
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (128, 64)
+shape-encodeBiasesThisLayer (64,)
+--------------------------------------------------------------------------------
+encodeWeightsOutLayer [0,0] 0.696719
+encodeBiasesOutLayer [0] -0.7427
+--------------------------------------------------------------------------------
+shape-encodeWeightsOutLayer (64, 10)
+shape-encodeBiasesOutLayer (10,)
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+After saving saveResultDict to file
+MlpNet1 harnessDuration 0:01:16.183554
+MlpNet1 duration as str 1.0m 16.183554s

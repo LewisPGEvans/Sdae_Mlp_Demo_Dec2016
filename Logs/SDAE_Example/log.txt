@@ -1,0 +1,548 @@
+Log start, written by LogLib.StartUniqueLog at 2017-03-30___08-15-57-615783_pid_22696
+SdaeTwo
+SdaeTwo harnessStartTime=2017-03-30 08:15:57.615626
+after setting randomSeed=615626
+shape-trainCovariates=(55000, 784)
+shape-trainLabels=(55000, 10)
+shape-testCovariates=(10000, 784)
+shape-testLabels=(10000, 10)
+inputDim=784
+hiddenDims=(256, 128, 64)
+numHiddenLayers=3
+totalDims=(784, 256, 128, 64)
+hiddenEncodeFuncName=sigmoid
+hiddenDecodeFuncName=sigmoid
+lossName=rmse
+learnRate=0.007
+maskNoiseFraction=0.25
+bTiedWeights=True
+bTrainDataBatchesRandom=True
+numTrainBatches=100
+batchSize 550 out of 55000
+printBatchFreq=10
+nTrainEpochs=5
+printEpochFreq=1
+initWbTruncNormal=True
+********************************************************************************
+numLayers=3
+hLayerIndex=0
+shape-encodeWeights (784, 256)
+shape-encodeBiases (256,)
+shape-decodeWeights (256, 784)
+shape-decodeBiases (784,)
+encodeWeights[0:2, 0:2] [[ 1.00971745 -0.38694313]
+ [ 0.02853415 -0.102989  ]]
+encodeBiases[0:2] [ 1.33128717 -0.22010172]
+decodeWeights[0:2, 0:2] [[ 1.00971745  0.02853415]
+ [-0.38694313 -0.102989  ]]
+decodeBiases[0:2] [-1.09909695 -1.33185756]
+********************************************************************************
+hLayerIndex=1
+shape-encodeWeights (256, 128)
+shape-encodeBiases (128,)
+shape-decodeWeights (128, 256)
+shape-decodeBiases (256,)
+encodeWeights[0:2, 0:2] [[-0.4718986   0.3369445 ]
+ [-0.07290498 -0.51647935]]
+encodeBiases[0:2] [-0.13484428  0.37328887]
+decodeWeights[0:2, 0:2] [[-0.4718986  -0.07290498]
+ [ 0.3369445  -0.51647935]]
+decodeBiases[0:2] [-0.12000559  1.13316906]
+********************************************************************************
+hLayerIndex=2
+shape-encodeWeights (128, 64)
+shape-encodeBiases (64,)
+shape-decodeWeights (64, 128)
+shape-decodeBiases (128,)
+encodeWeights[0:2, 0:2] [[ 1.42365053  1.33643002]
+ [-0.45131285  0.10994135]]
+encodeBiases[0:2] [ 1.55274586  0.65237292]
+decodeWeights[0:2, 0:2] [[ 1.42365053 -0.45131285]
+ [ 1.33643002  0.10994135]]
+decodeBiases[0:2] [-0.5027705   0.85518764]
+********************************************************************************
+********************************************************************************
+Before training all SDAE layers
+Before training HiddenLayer 0 which has dim 256, layerAboveDim 784
+After starting session
+After initialise all variables
+********************************************************************************
+Start_PrintTrainableVariables
+nodeIndex 0, node-name encodeWeightsThisLayerVar_layer_0:0, node-dtype <dtype: 'float32_ref'>
+value: name encodeWeightsThisLayerVar_layer_0/read:0, dtype <dtype: 'float32'>, shape (784, 256)
+nodeIndex 1, node-name encodeBiasesThisLayerVar_layer_0:0, node-dtype <dtype: 'float32_ref'>
+value: name encodeBiasesThisLayerVar_layer_0/read:0, dtype <dtype: 'float32'>, shape (256,)
+nodeIndex 2, node-name decodeBiasesThisLayerVar_layer_0:0, node-dtype <dtype: 'float32_ref'>
+value: name decodeBiasesThisLayerVar_layer_0/read:0, dtype <dtype: 'float32'>, shape (784,)
+End_PrintTrainableVariables
+********************************************************************************
+Before training layer 0
+numLayers=3
+hLayerIndex=0
+encodeWeightsThisLayer [0,0] 1.00971744959
+encodeBiasesThisLayer [0] 1.33128716758
+decodeWeightsThisLayer [0,0] 1.00971744959
+decodeBiasesThisLayer [0] -1.09909695099
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=1
+encodeWeightsThisLayer [0,0] -0.471898597008
+encodeBiasesThisLayer [0] -0.134844279128
+decodeWeightsThisLayer [0,0] -0.471898597008
+decodeBiasesThisLayer [0] -0.120005587155
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=2
+encodeWeightsThisLayer [0,0] 1.42365053314
+encodeBiasesThisLayer [0] 1.55274585907
+decodeWeightsThisLayer [0,0] 1.42365053314
+decodeBiasesThisLayer [0] -0.50277049529
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+batch 9, epoch 0: global loss = 0.4229523837566376
+batch 19, epoch 0: global loss = 0.304782509803772
+batch 29, epoch 0: global loss = 0.2662626802921295
+batch 39, epoch 0: global loss = 0.24978414177894592
+batch 49, epoch 0: global loss = 0.23466277122497559
+batch 59, epoch 0: global loss = 0.22519925236701965
+batch 69, epoch 0: global loss = 0.21857473254203796
+batch 79, epoch 0: global loss = 0.2140790820121765
+batch 89, epoch 0: global loss = 0.2130889743566513
+batch 99, epoch 0: global loss = 0.20733202993869781
+epoch 0, hiddenLayer 0
+batch 9, epoch 1: global loss = 0.20374704897403717
+batch 19, epoch 1: global loss = 0.20089349150657654
+batch 29, epoch 1: global loss = 0.19681468605995178
+batch 39, epoch 1: global loss = 0.19404558837413788
+batch 49, epoch 1: global loss = 0.1898481249809265
+batch 59, epoch 1: global loss = 0.18815116584300995
+batch 69, epoch 1: global loss = 0.18614919483661652
+batch 79, epoch 1: global loss = 0.18281544744968414
+batch 89, epoch 1: global loss = 0.18096810579299927
+batch 99, epoch 1: global loss = 0.17850801348686218
+epoch 1, hiddenLayer 0
+batch 9, epoch 2: global loss = 0.1773657649755478
+batch 19, epoch 2: global loss = 0.17830342054367065
+batch 29, epoch 2: global loss = 0.17552585899829865
+batch 39, epoch 2: global loss = 0.1733185350894928
+batch 49, epoch 2: global loss = 0.17338927090168
+batch 59, epoch 2: global loss = 0.1700901985168457
+batch 69, epoch 2: global loss = 0.1697150319814682
+batch 79, epoch 2: global loss = 0.1676018387079239
+batch 89, epoch 2: global loss = 0.16782639920711517
+batch 99, epoch 2: global loss = 0.1670672595500946
+epoch 2, hiddenLayer 0
+batch 9, epoch 3: global loss = 0.16467326879501343
+batch 19, epoch 3: global loss = 0.16223940253257751
+batch 29, epoch 3: global loss = 0.16482657194137573
+batch 39, epoch 3: global loss = 0.16515520215034485
+batch 49, epoch 3: global loss = 0.16060343384742737
+batch 59, epoch 3: global loss = 0.16074490547180176
+batch 69, epoch 3: global loss = 0.1588284820318222
+batch 79, epoch 3: global loss = 0.16027513146400452
+batch 89, epoch 3: global loss = 0.15857325494289398
+batch 99, epoch 3: global loss = 0.1589002013206482
+epoch 3, hiddenLayer 0
+batch 9, epoch 4: global loss = 0.15965025126934052
+batch 19, epoch 4: global loss = 0.15689526498317719
+batch 29, epoch 4: global loss = 0.1565137803554535
+batch 39, epoch 4: global loss = 0.1543363630771637
+batch 49, epoch 4: global loss = 0.15280266106128693
+batch 59, epoch 4: global loss = 0.1541593223810196
+batch 69, epoch 4: global loss = 0.1546708345413208
+batch 79, epoch 4: global loss = 0.1524834781885147
+batch 89, epoch 4: global loss = 0.15309885144233704
+batch 99, epoch 4: global loss = 0.15171338617801666
+epoch 4, hiddenLayer 0
+After training layer 0
+numLayers=3
+hLayerIndex=0
+encodeWeightsThisLayer [0,0] 0.772886
+encodeBiasesThisLayer [0] 3.00409
+decodeWeightsThisLayer [0,0] 0.772886
+decodeBiasesThisLayer [0] -1.30883
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=1
+encodeWeightsThisLayer [0,0] -0.471898597008
+encodeBiasesThisLayer [0] -0.134844279128
+decodeWeightsThisLayer [0,0] -0.471898597008
+decodeBiasesThisLayer [0] -0.120005587155
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=2
+encodeWeightsThisLayer [0,0] 1.42365053314
+encodeBiasesThisLayer [0] 1.55274585907
+decodeWeightsThisLayer [0,0] 1.42365053314
+decodeBiasesThisLayer [0] -0.50277049529
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+After closing session
+After training HiddenLayer 0 which has dim 256, layerAboveDim 784
+Before training HiddenLayer 1 which has dim 128, layerAboveDim 256
+After starting session
+After initialise all variables
+********************************************************************************
+Start_PrintTrainableVariables
+nodeIndex 0, node-name encodeWeightsThisLayerVar_layer_1:0, node-dtype <dtype: 'float32_ref'>
+value: name encodeWeightsThisLayerVar_layer_1/read:0, dtype <dtype: 'float32'>, shape (256, 128)
+nodeIndex 1, node-name encodeBiasesThisLayerVar_layer_1:0, node-dtype <dtype: 'float32_ref'>
+value: name encodeBiasesThisLayerVar_layer_1/read:0, dtype <dtype: 'float32'>, shape (128,)
+nodeIndex 2, node-name decodeBiasesThisLayerVar_layer_1:0, node-dtype <dtype: 'float32_ref'>
+value: name decodeBiasesThisLayerVar_layer_1/read:0, dtype <dtype: 'float32'>, shape (256,)
+End_PrintTrainableVariables
+********************************************************************************
+Before training layer 1
+numLayers=3
+hLayerIndex=0
+encodeWeightsThisLayer [0,0] 0.772886
+encodeBiasesThisLayer [0] 3.00409
+decodeWeightsThisLayer [0,0] 0.772886
+decodeBiasesThisLayer [0] -1.30883
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=1
+encodeWeightsThisLayer [0,0] -0.471898597008
+encodeBiasesThisLayer [0] -0.134844279128
+decodeWeightsThisLayer [0,0] -0.471898597008
+decodeBiasesThisLayer [0] -0.120005587155
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=2
+encodeWeightsThisLayer [0,0] 1.42365053314
+encodeBiasesThisLayer [0] 1.55274585907
+decodeWeightsThisLayer [0,0] 1.42365053314
+decodeBiasesThisLayer [0] -0.50277049529
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+batch 9, epoch 0: global loss = 0.4730658233165741
+batch 19, epoch 0: global loss = 0.41208964586257935
+batch 29, epoch 0: global loss = 0.3894975781440735
+batch 39, epoch 0: global loss = 0.3678911328315735
+batch 49, epoch 0: global loss = 0.3522436320781708
+batch 59, epoch 0: global loss = 0.3396837115287781
+batch 69, epoch 0: global loss = 0.33110326528549194
+batch 79, epoch 0: global loss = 0.32068362832069397
+batch 89, epoch 0: global loss = 0.31351950764656067
+batch 99, epoch 0: global loss = 0.3041343688964844
+epoch 0, hiddenLayer 1
+batch 9, epoch 1: global loss = 0.29472506046295166
+batch 19, epoch 1: global loss = 0.2927660048007965
+batch 29, epoch 1: global loss = 0.28861933946609497
+batch 39, epoch 1: global loss = 0.280407190322876
+batch 49, epoch 1: global loss = 0.2774653136730194
+batch 59, epoch 1: global loss = 0.27522605657577515
+batch 69, epoch 1: global loss = 0.2715816795825958
+batch 79, epoch 1: global loss = 0.26763686537742615
+batch 89, epoch 1: global loss = 0.2652297019958496
+batch 99, epoch 1: global loss = 0.26132822036743164
+epoch 1, hiddenLayer 1
+batch 9, epoch 2: global loss = 0.2572116553783417
+batch 19, epoch 2: global loss = 0.2534731924533844
+batch 29, epoch 2: global loss = 0.2503281533718109
+batch 39, epoch 2: global loss = 0.24847403168678284
+batch 49, epoch 2: global loss = 0.247395321726799
+batch 59, epoch 2: global loss = 0.24756339192390442
+batch 69, epoch 2: global loss = 0.24364657700061798
+batch 79, epoch 2: global loss = 0.24147579073905945
+batch 89, epoch 2: global loss = 0.23587839305400848
+batch 99, epoch 2: global loss = 0.2401295006275177
+epoch 2, hiddenLayer 1
+batch 9, epoch 3: global loss = 0.23918452858924866
+batch 19, epoch 3: global loss = 0.23696781694889069
+batch 29, epoch 3: global loss = 0.23394204676151276
+batch 39, epoch 3: global loss = 0.23341572284698486
+batch 49, epoch 3: global loss = 0.22851738333702087
+batch 59, epoch 3: global loss = 0.22813068330287933
+batch 69, epoch 3: global loss = 0.2306034117937088
+batch 79, epoch 3: global loss = 0.22712984681129456
+batch 89, epoch 3: global loss = 0.22757579386234283
+batch 99, epoch 3: global loss = 0.22705520689487457
+epoch 3, hiddenLayer 1
+batch 9, epoch 4: global loss = 0.22176365554332733
+batch 19, epoch 4: global loss = 0.22101691365242004
+batch 29, epoch 4: global loss = 0.22329571843147278
+batch 39, epoch 4: global loss = 0.22077356278896332
+batch 49, epoch 4: global loss = 0.22369548678398132
+batch 59, epoch 4: global loss = 0.21906717121601105
+batch 69, epoch 4: global loss = 0.21586264669895172
+batch 79, epoch 4: global loss = 0.217171311378479
+batch 89, epoch 4: global loss = 0.2188967764377594
+batch 99, epoch 4: global loss = 0.21787014603614807
+epoch 4, hiddenLayer 1
+After training layer 1
+numLayers=3
+hLayerIndex=0
+encodeWeightsThisLayer [0,0] 0.772886
+encodeBiasesThisLayer [0] 3.00409
+decodeWeightsThisLayer [0,0] 0.772886
+decodeBiasesThisLayer [0] -1.30883
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=1
+encodeWeightsThisLayer [0,0] -0.99136
+encodeBiasesThisLayer [0] 0.191438
+decodeWeightsThisLayer [0,0] -0.99136
+decodeBiasesThisLayer [0] -0.246486
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=2
+encodeWeightsThisLayer [0,0] 1.42365053314
+encodeBiasesThisLayer [0] 1.55274585907
+decodeWeightsThisLayer [0,0] 1.42365053314
+decodeBiasesThisLayer [0] -0.50277049529
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+After closing session
+After training HiddenLayer 1 which has dim 128, layerAboveDim 256
+Before training HiddenLayer 2 which has dim 64, layerAboveDim 128
+After starting session
+After initialise all variables
+********************************************************************************
+Start_PrintTrainableVariables
+nodeIndex 0, node-name encodeWeightsThisLayerVar_layer_2:0, node-dtype <dtype: 'float32_ref'>
+value: name encodeWeightsThisLayerVar_layer_2/read:0, dtype <dtype: 'float32'>, shape (128, 64)
+nodeIndex 1, node-name encodeBiasesThisLayerVar_layer_2:0, node-dtype <dtype: 'float32_ref'>
+value: name encodeBiasesThisLayerVar_layer_2/read:0, dtype <dtype: 'float32'>, shape (64,)
+nodeIndex 2, node-name decodeBiasesThisLayerVar_layer_2:0, node-dtype <dtype: 'float32_ref'>
+value: name decodeBiasesThisLayerVar_layer_2/read:0, dtype <dtype: 'float32'>, shape (128,)
+End_PrintTrainableVariables
+********************************************************************************
+Before training layer 2
+numLayers=3
+hLayerIndex=0
+encodeWeightsThisLayer [0,0] 0.772886
+encodeBiasesThisLayer [0] 3.00409
+decodeWeightsThisLayer [0,0] 0.772886
+decodeBiasesThisLayer [0] -1.30883
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=1
+encodeWeightsThisLayer [0,0] -0.99136
+encodeBiasesThisLayer [0] 0.191438
+decodeWeightsThisLayer [0,0] -0.99136
+decodeBiasesThisLayer [0] -0.246486
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=2
+encodeWeightsThisLayer [0,0] 1.42365053314
+encodeBiasesThisLayer [0] 1.55274585907
+decodeWeightsThisLayer [0,0] 1.42365053314
+decodeBiasesThisLayer [0] -0.50277049529
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+batch 9, epoch 0: global loss = 0.47083741426467896
+batch 19, epoch 0: global loss = 0.4278481602668762
+batch 29, epoch 0: global loss = 0.4057879149913788
+batch 39, epoch 0: global loss = 0.3823716938495636
+batch 49, epoch 0: global loss = 0.3676525056362152
+batch 59, epoch 0: global loss = 0.3552122712135315
+batch 69, epoch 0: global loss = 0.34444814920425415
+batch 79, epoch 0: global loss = 0.330454021692276
+batch 89, epoch 0: global loss = 0.32396775484085083
+batch 99, epoch 0: global loss = 0.3127644956111908
+epoch 0, hiddenLayer 2
+batch 9, epoch 1: global loss = 0.3081541955471039
+batch 19, epoch 1: global loss = 0.3030215799808502
+batch 29, epoch 1: global loss = 0.29793673753738403
+batch 39, epoch 1: global loss = 0.28936272859573364
+batch 49, epoch 1: global loss = 0.2866054177284241
+batch 59, epoch 1: global loss = 0.27898502349853516
+batch 69, epoch 1: global loss = 0.27769339084625244
+batch 79, epoch 1: global loss = 0.27541056275367737
+batch 89, epoch 1: global loss = 0.2681182324886322
+batch 99, epoch 1: global loss = 0.2670426070690155
+epoch 1, hiddenLayer 2
+batch 9, epoch 2: global loss = 0.2678679823875427
+batch 19, epoch 2: global loss = 0.26068615913391113
+batch 29, epoch 2: global loss = 0.2575243413448334
+batch 39, epoch 2: global loss = 0.2565845251083374
+batch 49, epoch 2: global loss = 0.2535240054130554
+batch 59, epoch 2: global loss = 0.2507020831108093
+batch 69, epoch 2: global loss = 0.2516267001628876
+batch 79, epoch 2: global loss = 0.25135910511016846
+batch 89, epoch 2: global loss = 0.2491774708032608
+batch 99, epoch 2: global loss = 0.2452344447374344
+epoch 2, hiddenLayer 2
+batch 9, epoch 3: global loss = 0.24581360816955566
+batch 19, epoch 3: global loss = 0.24478468298912048
+batch 29, epoch 3: global loss = 0.24295659363269806
+batch 39, epoch 3: global loss = 0.23872821033000946
+batch 49, epoch 3: global loss = 0.24101996421813965
+batch 59, epoch 3: global loss = 0.23794826865196228
+batch 69, epoch 3: global loss = 0.23708325624465942
+batch 79, epoch 3: global loss = 0.23291119933128357
+batch 89, epoch 3: global loss = 0.23781055212020874
+batch 99, epoch 3: global loss = 0.23784376680850983
+epoch 3, hiddenLayer 2
+batch 9, epoch 4: global loss = 0.23406599462032318
+batch 19, epoch 4: global loss = 0.2352173924446106
+batch 29, epoch 4: global loss = 0.23322458565235138
+batch 39, epoch 4: global loss = 0.2347385436296463
+batch 49, epoch 4: global loss = 0.23543919622898102
+batch 59, epoch 4: global loss = 0.23295900225639343
+batch 69, epoch 4: global loss = 0.23267096281051636
+batch 79, epoch 4: global loss = 0.2303617298603058
+batch 89, epoch 4: global loss = 0.23028266429901123
+batch 99, epoch 4: global loss = 0.23255693912506104
+epoch 4, hiddenLayer 2
+After training layer 2
+numLayers=3
+hLayerIndex=0
+encodeWeightsThisLayer [0,0] 0.772886
+encodeBiasesThisLayer [0] 3.00409
+decodeWeightsThisLayer [0,0] 0.772886
+decodeBiasesThisLayer [0] -1.30883
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=1
+encodeWeightsThisLayer [0,0] -0.99136
+encodeBiasesThisLayer [0] 0.191438
+decodeWeightsThisLayer [0,0] -0.99136
+decodeBiasesThisLayer [0] -0.246486
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=2
+encodeWeightsThisLayer [0,0] 0.289583
+encodeBiasesThisLayer [0] 1.73843
+decodeWeightsThisLayer [0,0] 0.289583
+decodeBiasesThisLayer [0] -0.673425
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+After closing session
+After training HiddenLayer 2 which has dim 64, layerAboveDim 128
+After training all SDAE layers
+saveResultDict-sortedSrdKeys['bTiedWeights', 'decodeBiasesDict', 'decodeWeightsDict', 'encodeBiasesDict', 'encodeWeightsDict', 'hiddenDecodeFuncName', 'hiddenDims', 'hiddenEncodeFuncName', 'initDecodeBiasesDict', 'initDecodeWeightsDict', 'initEncodeBiasesDict', 'initEncodeWeightsDict', 'inputDim', 'lossName', 'totalDims']
+encodeWeightsDict-[0].shape(784, 256)
+encodeBiasesDict-[0].shape(256,)
+decodeWeightsDict-[0].shape(256, 784)
+decodeBiasesDict-[0].shape(784,)
+encodeWeightsDict-[1].shape(256, 128)
+encodeBiasesDict-[1].shape(128,)
+decodeWeightsDict-[1].shape(128, 256)
+decodeBiasesDict-[1].shape(256,)
+encodeWeightsDict-[2].shape(128, 64)
+encodeBiasesDict-[2].shape(64,)
+decodeWeightsDict-[2].shape(64, 128)
+decodeBiasesDict-[2].shape(128,)
+--------------------------------------------------------------------------------
+********************************************************************************
+Start_PrintTrainableVariables
+End_PrintTrainableVariables
+********************************************************************************
+After all training, initParams
+numLayers=3
+hLayerIndex=0
+encodeWeightsThisLayer [0,0] 1.00971744959
+encodeBiasesThisLayer [0] 1.33128716758
+decodeWeightsThisLayer [0,0] 1.00971744959
+decodeBiasesThisLayer [0] -1.09909695099
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (784, 256)
+shape-encodeBiasesThisLayer (256,)
+shape-decodeWeightsThisLayer (256, 784)
+shape-decodeBiasesThisLayer (784,)
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=1
+encodeWeightsThisLayer [0,0] -0.471898597008
+encodeBiasesThisLayer [0] -0.134844279128
+decodeWeightsThisLayer [0,0] -0.471898597008
+decodeBiasesThisLayer [0] -0.120005587155
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (256, 128)
+shape-encodeBiasesThisLayer (128,)
+shape-decodeWeightsThisLayer (128, 256)
+shape-decodeBiasesThisLayer (256,)
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=2
+encodeWeightsThisLayer [0,0] 1.42365053314
+encodeBiasesThisLayer [0] 1.55274585907
+decodeWeightsThisLayer [0,0] 1.42365053314
+decodeBiasesThisLayer [0] -0.50277049529
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (128, 64)
+shape-encodeBiasesThisLayer (64,)
+shape-decodeWeightsThisLayer (64, 128)
+shape-decodeBiasesThisLayer (128,)
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+After all training, finalParams
+numLayers=3
+hLayerIndex=0
+encodeWeightsThisLayer [0,0] 0.772886
+encodeBiasesThisLayer [0] 3.00409
+decodeWeightsThisLayer [0,0] 0.772886
+decodeBiasesThisLayer [0] -1.30883
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (784, 256)
+shape-encodeBiasesThisLayer (256,)
+shape-decodeWeightsThisLayer (256, 784)
+shape-decodeBiasesThisLayer (784,)
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=1
+encodeWeightsThisLayer [0,0] -0.99136
+encodeBiasesThisLayer [0] 0.191438
+decodeWeightsThisLayer [0,0] -0.99136
+decodeBiasesThisLayer [0] -0.246486
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (256, 128)
+shape-encodeBiasesThisLayer (128,)
+shape-decodeWeightsThisLayer (128, 256)
+shape-decodeBiasesThisLayer (256,)
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+hLayerIndex=2
+encodeWeightsThisLayer [0,0] 0.289583
+encodeBiasesThisLayer [0] 1.73843
+decodeWeightsThisLayer [0,0] 0.289583
+decodeBiasesThisLayer [0] -0.673425
+--------------------------------------------------------------------------------
+shape-encodeWeightsThisLayer (128, 64)
+shape-encodeBiasesThisLayer (64,)
+shape-decodeWeightsThisLayer (64, 128)
+shape-decodeBiasesThisLayer (128,)
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+After saving saveResultDict to file
+bClassifyUseCaseB=True
+after fitting LogReg to rawData
+after fitting LogReg to recodedData
+after fitting LogReg to bothData
+lr_rawData_ypredTest-shape=(10000,)
+lr_recodedData_ypredTest-shape=(10000,)
+lr_bothData_ypredTest-shape=(10000,)
+LogReg-rawData, errorRate 0.1024, errorCount 1024, numTestExamples 10000
+LogReg-recodedData, errorRate 0.1171, errorCount 1171, numTestExamples 10000
+LogReg-bothData, errorRate 0.0897, errorCount 897, numTestExamples 10000
+********************************************************************************
+
+bClassifyUseCaseC=True
+bSaveInterimLayerGraphs=True
+nGenerateEpochs=1
+printGenerateFreq=1
+numToSavePerEpoch=10
+********************************************************************************
+Start_PrintTrainableVariables
+End_PrintTrainableVariables
+********************************************************************************
+UseCaseC, After starting session
+saveIndex 0
+saveIndex 2
+saveIndex 4
+saveIndex 6
+saveIndex 8
+generate-epoch 0
+UseCaseC, After closing session
+SdaeTwo harnessDuration 0:02:57.078542
+SdaeTwo duration as str 2.0m 57.078542s
