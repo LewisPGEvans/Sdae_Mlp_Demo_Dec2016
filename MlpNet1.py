@@ -112,8 +112,8 @@ LocalPrintAndLogFunc("numBatchDatasets=" + str(numBatchDatasets))
 
 # Here: decide whether to use loadedWeights (weights loaded from file, eg learnt by SDAE)
 # or not (hence random initial weights)
-loadWeightsFilename = None
-#loadWeightsFilename = "/media/sf_Python_Results/Tf_Results/2016-11-07/2016-11-07___17-34-05-529859/saveResultDict.p"
+#loadWeightsFilename = None
+loadWeightsFilename = "/media/sf_Python_Results/Tf_Results/2016-11-07/2016-11-07___17-34-05-529859/saveResultDict.p"
 bLoadWeights = loadWeightsFilename is not None
 if bLoadWeights:
 	assert os.path.exists(loadWeightsFilename)
