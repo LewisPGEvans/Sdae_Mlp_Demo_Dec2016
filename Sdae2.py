@@ -1,85 +1,17 @@
 ############################################################################################################################################################
-# Agenda
-
-# Performance
-# now, 07112016
-	# all three test cases work
-
-	# finally, generated images are realistic: sigmoid-sigmoid
-	# 1-layer, sigmoid-sigmoid, mNoise=0.1, 5 epochs; D:\temp\Python_Results\Tf_Results\2016-11-07\2016-11-07___17-15-42-180462
-	# 2 layer, sameParams, D:\temp\Python_Results\Tf_Results\2016-11-07\2016-11-07___17-19-32-311479
-	# 3-layer, sameParams, D:\temp\Python_Results\Tf_Results\2016-11-07\2016-11-07___17-34-05-529859
-	
-	# also, LogReg results are decent
-	# LogReg-rawData, errorRate 0.0998, errorCount 998, numTestExamples 10000
-	# LogReg-recodedData, errorRate 0.1146, errorCount 1146, numTestExamples 10000
-	# LogReg-bothData, errorRate 0.0916, errorCount 916, numTestExamples 10000
-	# see D:\temp\Python_Results\Tf_Results\2016-11-07\2016-11-07___17-40-18-205963
-	
-	# also, use case A, accuracy improved
-	# Accuracy: 0.9626
-	# see D:\temp\Python_Results\Tf_Results\2016-11-07\2016-11-07___17-45-31-793756
-# before, performance was rubbish, even images terrible; sigmoid-linear is the suspected cause
-	# CANNOT get decent perf, useCaseC is test
-		# generated images are noise-digits
-		# generated images are (near)-identical
-	# also, useCaseB, LogReg results dreadful; both worse than raw; recoded is NEGATIVE, eRate nearer one (chance)
-	# LogReg-rawData, errorRate 0.0984, errorCount 984, numTestExamples 10000
-	# LogReg-recodedData, errorRate 0.8809, errorCount 8809, numTestExamples 10000
-	# LogReg-bothData, errorRate 0.0997, errorCount 997, numTestExamples 10000
-	# HOW to debug this? code really looks like doing exactly the right thing; loss falls each time
-	# maybe, save interim images during training
-	
-# Note on CtrlParams
-"""
-numLayers, numHiddensPerLayer
-f, g (encodeFunc, decodeFunc)
-lossFunc
-boolTiedWeights
-"""
-
-
-
-
-
-
-
-
-
-############################################################################################################################################################
-
-
-
-############################################################################################################################################################
-# Notes
-############################################################################################################################################################
 
 # three use cases
-# case A: use new features to improve backprop
-# case B: directly use new features to improve a vanillaClassifier eg logReg
-# case C: generate images, should be close to originals
+# 	case A: use new features to improve MLP; save sdae final weights, MLP sets them as initial weights
+# 	case B: directly use new features to improve a classifier eg logReg
+# 	case C: generate images, should be close to originals
 
-# see libsdae/stacked_autoencoder and testAdded2; https://github.com/rajarsheem/libsdae
-# see autoencoder2.py in TensorFlow-Examples\Examples\3_NeuralNetworks
-# see https://github.com/aymericdamien/TensorFlow-Examples/blob/master/examples/3_NeuralNetworks/autoencoder.py
-# for train-params, see http://deeplearning.net/tutorial/SdA.html
-
-# have fixed the 2gb-tf-bug
-# 		ValueError: GraphDef cannot be larger than 2GB.
-# by making extra calls to 
-# 		tf.reset_default_graph
-
-# advantage of SessionEval funcs: the result is np-array, hence can apply regular functions such as NumberLib.ApplyMaskingNoise
-
-# testCases
+# Note on control parameters
 """
-weights 
-	zero -> values indep of x, are purely biases
-	ones
-	0.1 / fixed fraction
-biases
-	0
-	1
+numLayers, numHiddensPerLayer (hiddenDims)
+f, g (encodeFunc, decodeFunc; hiddenEncodeFuncName, hiddenDecodeFuncName)
+lossFunc (lossName)
+bool, tiedWeights (bTiedWeights)
+maskNoiseFraction
 """
 
 ############################################################################################################################################################
@@ -176,7 +108,8 @@ LocalPrintAndLogFunc("lossName=" + str(lossName))
 learnRate = 0.007
 LocalPrintAndLogFunc("learnRate=" + str(learnRate))
 
-maskNoiseFraction = 0.1 # 0.25
+maskNoiseFraction = 0.1 
+#maskNoiseFraction = 0.25
 LocalPrintAndLogFunc("maskNoiseFraction=" + str(maskNoiseFraction))
 
 bTiedWeights = True
@@ -668,7 +601,7 @@ if bClassifyUseCaseC:
 	LocalPrintAndLogFunc("nGenerateEpochs=" + str(nGenerateEpochs))
 	printGenerateFreq = 1 # nGenerateEpochs / 10
 	LocalPrintAndLogFunc("printGenerateFreq=" + str(printGenerateFreq))
-	numToSavePerEpoch = 3 # 10 # 5
+	numToSavePerEpoch = 10 # 3 # 5
 	LocalPrintAndLogFunc("numToSavePerEpoch=" + str(numToSavePerEpoch))
 	
 	tf.reset_default_graph()
