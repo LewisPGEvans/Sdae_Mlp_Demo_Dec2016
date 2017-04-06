@@ -334,13 +334,13 @@ yLabels = tf.placeholder("float", [None, outputDim])
 netPrediction = FeedForwardOutput(xInputData, weightsDict, biasesDict, hiddenEncodeFuncName, outputEncodeFuncName)
 
 if lossName == "cross-entropy":
-	cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(netPrediction, yLabels))
+	cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits = netPrediction, labels = yLabels))
 else:
 	assert False, "unknown lossName"
 	
 trainOp = tf.train.AdamOptimizer(learning_rate=learnRate).minimize(cost)
 
-initOp = tf.initialize_all_variables()
+initOp = tf.global_variables_initializer()
 
 saveResultDict = dict()
 saveResultDict["totalDims"] = totalDims

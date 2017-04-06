@@ -411,17 +411,17 @@ for hLayerIndex in range(numHiddenLayers):
 	
 	# define loss
 	if lossName == 'rmse':
-		loss = tf.sqrt(tf.reduce_mean(tf.square(tf.sub(xPureInput, decodeOp))))
+		loss = tf.sqrt(tf.reduce_mean(tf.square(tf.subtract(xPureInput, decodeOp))))
 	elif lossName == 'cross-entropy':
-		loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(decodeOp, xPureInput))
+		loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits = decodeOp, labels = xPureInput))
 	
 	trainOp = tf.train.AdamOptimizer(learnRate).minimize(loss)
 	
 	sess = tf.Session()
 	LocalPrintAndLogFunc("After starting session")
-	init_op = tf.initialize_all_variables()
+	init_op = tf.global_variables_initializer()
 	sess.run(init_op)
-	LocalPrintAndLogFunc("After initialise all variables")
+	LocalPrintAndLogFunc("After global_variables_initializer")
 	
 	TfLib.PrintTrainableVariables(sess, LocalPrintAndLogFunc)
 	
