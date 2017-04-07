@@ -5,6 +5,7 @@ import datetime
 import numpy as np
 import os
 import pickle
+import platform
 import random
 import scipy.stats
 import sys
@@ -63,6 +64,9 @@ LocalPrintAndLogFunc("shape-testLabels=" + str(testLabels.shape))
 # block: set overall parameters
 ############################################################################################################################################################
 
+boolIsWindows = (platform.system() == 'Windows')
+LocalPrintAndLogFunc("boolIsWindows=" + str(boolIsWindows))
+
 # live
 inputDim = trainCovariates.shape[1]
 outputDim = trainLabels.shape[1]
@@ -113,7 +117,10 @@ LocalPrintAndLogFunc("numBatchDatasets=" + str(numBatchDatasets))
 # Here: decide whether to use loadedWeights (weights loaded from file, eg learnt by SDAE)
 # or not (hence random initial weights)
 #loadWeightsFilename = None
-loadWeightsFilename = "/media/sf_Python_Results/Tf_Results/2016-11-07/2016-11-07___17-34-05-529859/saveResultDict.p"
+if boolIsWindows:
+	loadWeightsFilename = "d:/temp/Python_Results/Tf_Results/2016-11-07/2016-11-07___17-34-05-529859/saveResultDict.p"
+else:
+	loadWeightsFilename = "/media/sf_Python_Results/Tf_Results/2016-11-07/2016-11-07___17-34-05-529859/saveResultDict.p"
 bLoadWeights = loadWeightsFilename is not None
 if bLoadWeights:
 	assert os.path.exists(loadWeightsFilename)
