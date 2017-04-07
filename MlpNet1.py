@@ -60,8 +60,8 @@ LocalPrintAndLogFunc("shape-testImages=" + str(testCovariates.shape))
 LocalPrintAndLogFunc("shape-testLabels=" + str(testLabels.shape))
 
 ############################################################################################################################################################
-
-# compound operations
+# block: set overall parameters
+############################################################################################################################################################
 
 # live
 inputDim = trainCovariates.shape[1]
@@ -125,7 +125,7 @@ LocalPrintAndLogFunc("initWbTruncNormal=" + str(initWbTruncNormal))
 print("*" * 80)
 
 ############################################################################################################################################################
-# block: create params
+# block: create network transform data (weights and biases)
 ############################################################################################################################################################
 
 # the encodeWeights
@@ -166,6 +166,9 @@ else:
 	initialEncodeBiasesOut = np.arange(0, outputDim) / outputDim
 	
 ############################################################################################################################################################
+# block, optionally load weights
+# ie read transformData (weights and biases) from the values stored in the file
+############################################################################################################################################################
 
 gLoadedWeights = None
 if bLoadWeights:
@@ -198,6 +201,10 @@ if bLoadWeights:
 	
 	LocalPrintAndLogFunc("After loading weights")
 	
+
+
+############################################################################################################################################################
+# block, create tensorflow graph (set up variables)
 ############################################################################################################################################################
 	
 if len(hiddenDims) > 0: weights1 = tf.Variable(initialEncodeWeights1, name="weights1", dtype=tf.float32)
@@ -320,10 +327,12 @@ def PrintNetParamsSummary1(initialReportStr, printFunc, weightDict, biasDict, pr
 		printFunc("-" * 80)
 	printFunc("-" * 80)
 	
-
+	
+	
+############################################################################################################################################################
+# block, train MLP
 ############################################################################################################################################################
 	
-# train MLP
 LocalPrintAndLogFunc("Before training MlpNet1")
 numHiddenLayers = len(hiddenDims)
 
@@ -430,6 +439,8 @@ LocalPrintAndLogFunc("After saving saveResultDict to file")
 	
 	
 ############################################################################################################################################################
+# block, cleanup
+############################################################################################################################################################	
 	
 harnessEndTime = datetime.datetime.utcnow()
 harnessDuration = harnessEndTime - harnessStartTime
