@@ -61,7 +61,7 @@ LocalPrintAndLogFunc("shape-testImages=" + str(testCovariates.shape))
 LocalPrintAndLogFunc("shape-testLabels=" + str(testLabels.shape))
 
 ############################################################################################################################################################
-# block: set overall parameters
+# block: set overall parameters [todo-minor, use single dictionary overallParams instead of many globals]
 ############################################################################################################################################################
 
 boolIsWindows = (platform.system() == 'Windows')
