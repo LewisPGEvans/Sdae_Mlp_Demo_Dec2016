@@ -26,16 +26,22 @@ def ApplyMaskingNoise(x:np.ndarray, frac:float):
 # value: scalar integer
 def OneHotVectorToInt (ohVector):
 	assert len(ohVector.shape) == 1
-	numVals = ohVector.shape[0]
 	assert np.sum(ohVector) == 1
-	oneValues = ohVector[ohVector == 1]
-	assert len(oneValues) == 1
-	zeroValues = ohVector[ohVector == 0]
-	assert len(zeroValues) == numVals-1
-	for i in range(0, numVals):
-		if ohVector[i] == 1:
-			return int(i)
-	return int(-1)
+	numVals = ohVector.shape[0]
+	if __debug__:
+		oneValues = ohVector[ohVector == 1]
+		assert len(oneValues) == 1
+		zeroValues = ohVector[ohVector == 0]
+		assert len(zeroValues) == numVals-1
+	boolFlags = (ohVector == 1)
+	
+	whereResult = np.where(boolFlags)
+	assert isinstance(whereResult, tuple)
+	assert len(whereResult) == 1
+	indicesWhereTrue = whereResult[0]
+	
+	assert len(indicesWhereTrue) == 1
+	return indicesWhereTrue[0]
 	
 # value: np.array, 1d; intVector
 def OneHotMatrixToIntVector (ohMatrix):
