@@ -46,12 +46,12 @@ def OneHotVectorToInt (ohVector):
 # value: np.array, 1d; intVector
 def OneHotMatrixToIntVector (ohMatrix):
 	assert len(ohMatrix.shape) == 2
-	numRows = ohMatrix.shape[0]
-	result = np.repeat(0, numRows)
-	#result = np.zeros(numRows)
-	for i in range(0, numRows):
-		thisOhVec = ohMatrix[i,:]
-		result[i] = OneHotVectorToInt(thisOhVec)
+	
+	whereResult = np.where(ohMatrix == 1)
+	assert isinstance(whereResult, tuple)
+	assert len(whereResult) == 2
+	return whereResult[1]
+	
 	return result
 	
 ############################################################################################################################################################
