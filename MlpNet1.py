@@ -274,7 +274,7 @@ if bPrintAllShapes1:
 # x is input state; weightDict, biasDict are encode
 # whole net
 def FeedForwardOutput(x, weightDict, biasDict, hiddenEncodeFuncNameStr:str, outputEncodeFuncNameStr:str):
-	numKeys = len(weightsDict.keys())
+	numKeys = len(weightDict.keys())
 	numHiddenLayers = numKeys-1 # always have weightsOut
 	
 	if numHiddenLayers > 0:
