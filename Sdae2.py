@@ -140,12 +140,6 @@ LocalPrintAndLogFunc("nTrainEpochs=" + str(nTrainEpochs))
 printEpochFreq = 1
 LocalPrintAndLogFunc("printEpochFreq=" + str(printEpochFreq))
 
-
-
-
-initWbTruncNormal = True
-#initWbTruncNormal = False
-LocalPrintAndLogFunc("initWbTruncNormal=" + str(initWbTruncNormal))
 print("*" * 80)
 
 ############################################################################################################################################################
@@ -156,22 +150,9 @@ print("*" * 80)
 # 	dataGenerator options: zeros, linearSeq eg tf.linspace, truncNormal, regularNormal
 # 	tf.truncated_normal clips at 2*stdDev, ie +2,-2 for stdGaussian
 
-if initWbTruncNormal:
-	initialEncodeWeights1 = scipy.stats.truncnorm.rvs(-2, 2, size=inputDim * hiddenDims[0]).reshape(inputDim, hiddenDims[0])
-	if len(hiddenDims) > 1: initialEncodeWeights2 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[0] * hiddenDims[1]).reshape(hiddenDims[0], hiddenDims[1])
-	if len(hiddenDims) > 2: initialEncodeWeights3 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[1] * hiddenDims[2]).reshape(hiddenDims[1], hiddenDims[2])
-else:
-	npMat1 = np.arange(0, inputDim * hiddenDims[0]).reshape(inputDim, hiddenDims[0]);
-	npMat1 = npMat1 / np.max(npMat1)
-	initialEncodeWeights1 = npMat1
-	if len(hiddenDims) > 1: 
-		npMat2 = np.arange(0, hiddenDims[0] * hiddenDims[1]).reshape(hiddenDims[0], hiddenDims[1])
-		npMat2 = npMat2 / np.max(npMat2)
-		initialEncodeWeights2 = npMat2
-	if len(hiddenDims) > 2: 
-		npMat3 = np.arange(0, hiddenDims[1] * hiddenDims[2]).reshape(hiddenDims[1], hiddenDims[2])
-		npMat3 = npMat3 / np.max(npMat3)
-		initialEncodeWeights3 = npMat3
+initialEncodeWeights1 = scipy.stats.truncnorm.rvs(-2, 2, size=inputDim * hiddenDims[0]).reshape(inputDim, hiddenDims[0])
+if len(hiddenDims) > 1: initialEncodeWeights2 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[0] * hiddenDims[1]).reshape(hiddenDims[0], hiddenDims[1])
+if len(hiddenDims) > 2: initialEncodeWeights3 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[1] * hiddenDims[2]).reshape(hiddenDims[1], hiddenDims[2])
 
 # decodeWeights
 if bTiedWeights:
@@ -180,42 +161,19 @@ if bTiedWeights:
 	if len(hiddenDims) > 1: initialDecodeWeights2 = np.transpose(initialEncodeWeights2)
 	if len(hiddenDims) > 2: initialDecodeWeights3 = np.transpose(initialEncodeWeights3)
 else:
-	if initWbTruncNormal:
-		initialDecodeWeights1 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[0] * inputDim).reshape(hiddenDims[0], inputDim)
-		if len(hiddenDims) > 1: initialDecodeWeights2 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[1] * hiddenDims[0]).reshape(hiddenDims[1], hiddenDims[0])
-		if len(hiddenDims) > 2: initialDecodeWeights3 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[2] * hiddenDims[1]).reshape(hiddenDims[2], hiddenDims[1])
-	else: 
-		npMat4 = np.arange(0, hiddenDims[0] * inputDim).reshape(hiddenDims[0], inputDim);
-		npMat4 = npMat4 / np.max(npMat4)
-		initialDecodeWeights1 = npMat4
-		if len(hiddenDims) > 1: 
-			npMat5 = np.arange(0, hiddenDims[1] * hiddenDims[0]).reshape(hiddenDims[1], hiddenDims[0])
-			npMat5 = npMat5 / np.max(npMat5)
-			initialDecodeWeights2 = npMat5
-		if len(hiddenDims) > 2: 
-			npMat6 = np.arange(0, hiddenDims[2] * hiddenDims[1]).reshape(hiddenDims[2], hiddenDims[1])
-			npMat6 = npMat6 / np.max(npMat6)
-			initialDecodeWeights3 = npMat6
+	initialDecodeWeights1 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[0] * inputDim).reshape(hiddenDims[0], inputDim)
+	if len(hiddenDims) > 1: initialDecodeWeights2 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[1] * hiddenDims[0]).reshape(hiddenDims[1], hiddenDims[0])
+	if len(hiddenDims) > 2: initialDecodeWeights3 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[2] * hiddenDims[1]).reshape(hiddenDims[2], hiddenDims[1])
 
 # encodeBiases
-if initWbTruncNormal:
-	initialEncodeBiases1 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[0])
-	if len(hiddenDims) > 1: initialEncodeBiases2 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[1])
-	if len(hiddenDims) > 2: initialEncodeBiases3 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[2])
-else:
-	initialEncodeBiases1 = np.arange(0, hiddenDims[0]) / hiddenDims[0]
-	if len(hiddenDims) > 1: initialEncodeBiases2 = np.arange(0, hiddenDims[1]) / hiddenDims[1]
-	if len(hiddenDims) > 2: initialEncodeBiases3 = np.arange(0, hiddenDims[2]) / hiddenDims[2]
+initialEncodeBiases1 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[0])
+if len(hiddenDims) > 1: initialEncodeBiases2 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[1])
+if len(hiddenDims) > 2: initialEncodeBiases3 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[2])
 
 # decodeBiases, NOT same shape as encodeBiases
-if initWbTruncNormal:
-	initialDecodeBiases1 = scipy.stats.truncnorm.rvs(-2, 2, size=inputDim)
-	if len(hiddenDims) > 1: initialDecodeBiases2 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[0])
-	if len(hiddenDims) > 2: initialDecodeBiases3 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[1])
-else:
-	initialDecodeBiases1 = np.arange(0, inputDim) / inputDim
-	if len(hiddenDims) > 1: initialDecodeBiases2 = np.arange(0, hiddenDims[0]) / hiddenDims[0]
-	if len(hiddenDims) > 2: initialDecodeBiases3 = np.arange(0, hiddenDims[1]) / hiddenDims[1]
+initialDecodeBiases1 = scipy.stats.truncnorm.rvs(-2, 2, size=inputDim)
+if len(hiddenDims) > 1: initialDecodeBiases2 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[0])
+if len(hiddenDims) > 2: initialDecodeBiases3 = scipy.stats.truncnorm.rvs(-2, 2, size=hiddenDims[1])
 
 ############################################################################################################################################################
 
@@ -248,10 +206,12 @@ numLayers = len(hiddenDims)
 for hLayerIndex in range(numLayers):
 	hKeyStr = "h" + str(hLayerIndex+1)
 	bKeyStr = "b" + str(hLayerIndex+1)
+	
 	initEncodeWeightsDict[hKeyStr] = threeLayerInitEncodeWeightsDict[hKeyStr]
 	initEncodeBiasesDict[bKeyStr] = threeLayerInitEncodeBiasesDict[bKeyStr]
 	initDecodeWeightsDict[hKeyStr] = threeLayerInitDecodeWeightsDict[hKeyStr]
 	initDecodeBiasesDict[bKeyStr] = threeLayerInitDecodeBiasesDict[bKeyStr]
+	
 	finalEncodeWeightsDict[hKeyStr] = np.copy(initEncodeWeightsDict[hKeyStr])
 	finalEncodeBiasesDict[bKeyStr] = np.copy(initEncodeBiasesDict[bKeyStr])
 	finalDecodeWeightsDict[hKeyStr] = np.copy(initDecodeWeightsDict[hKeyStr])
